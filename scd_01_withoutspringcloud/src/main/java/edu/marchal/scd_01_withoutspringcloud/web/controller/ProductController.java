@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleBeanPropertyFilter;
 import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import edu.marchal.scd_01_withoutspringcloud.model.Product;
 import edu.marchal.scd_01_withoutspringcloud.dao.ProductDao;
+import edu.marchal.scd_01_withoutspringcloud.web.exceptions.ProduitIntrouvableException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
@@ -37,13 +38,18 @@ public class ProductController {
 
     @GetMapping(value = "/Produits/{id}")
     public Optional<Product> afficherUnProduit(@PathVariable int id) {
-        return productDao.findById(id);
+        Optional<Product> produit = productDao.findById(id);
+        if(produit.isEmpty()) throw new ProduitIntrouvableException("Le produit avec l'id " + id + " est INTROUVABLE. Écran Bleu si je pouvais.");
+        return produit;
     }
 
     @PostMapping(value = "/Produits")
     public ResponseEntity<Product> ajouterProduit(@RequestBody Product product) {
-        Product productAdded = productDao.save(product);
-        if (Objects.isNull(productAdded)) {
+        Product productAdded;
+        try {
+            productAdded = productDao.save(product);
+        }
+        catch (Exception e) {
             return ResponseEntity.noContent().build();
         }
         URI location = ServletUriComponentsBuilder
