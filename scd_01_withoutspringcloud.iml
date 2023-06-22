@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$/scd_01_withoutspringcloud">
       <excludeFolder url="file://$MODULE_DIR$/scd_01_withoutspringcloud/.gradle" />
       <excludeFolder url="file://$MODULE_DIR$/scd_01_withoutspringcloud/build" />
+      <excludeFolder url="file://$MODULE_DIR$/scd_01_withoutspringcloud/out" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
