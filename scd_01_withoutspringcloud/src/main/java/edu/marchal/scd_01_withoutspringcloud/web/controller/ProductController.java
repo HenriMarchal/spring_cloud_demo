@@ -6,7 +6,10 @@ import com.fasterxml.jackson.databind.ser.impl.SimpleFilterProvider;
 import edu.marchal.scd_01_withoutspringcloud.model.Product;
 import edu.marchal.scd_01_withoutspringcloud.dao.ProductDao;
 import edu.marchal.scd_01_withoutspringcloud.web.exceptions.ProduitIntrouvableException;
+import jakarta.validation.OverridesAttribute;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.json.MappingJacksonValue;
 import org.springframework.web.bind.annotation.*;
@@ -44,7 +47,7 @@ public class ProductController {
     }
 
     @PostMapping(value = "/Produits")
-    public ResponseEntity<Product> ajouterProduit(@RequestBody Product product) {
+    public ResponseEntity<Product> ajouterProduit(@Valid @RequestBody Product product) {
         Product productAdded;
         try {
             productAdded = productDao.save(product);
