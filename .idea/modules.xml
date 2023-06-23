@@ -2,11 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/scd_01_withoutspringcloud.iml" filepath="$PROJECT_DIR$/scd_01_withoutspringcloud.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.aot.iml" filepath="$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.aot.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.aotTest.iml" filepath="$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.aotTest.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.main.iml" filepath="$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.test.iml" filepath="$PROJECT_DIR$/.idea/modules/scd_01_withoutspringcloud.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/spring_cloud_demo.iml" filepath="$PROJECT_DIR$/.idea/spring_cloud_demo.iml" />
     </modules>
   </component>

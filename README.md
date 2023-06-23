@@ -4,6 +4,8 @@ a demonstrator of a cloud-native java application
 # Prerequisites
 JDK 17
 
+Spring Boot CLI
+
 Gradle 7.4
 
 IntelliJ Idea
