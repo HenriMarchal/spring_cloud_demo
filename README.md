@@ -1,4 +1,4 @@
-# spring_cloud_demo
+# spring_cloud_demo test
 a demonstrator of a cloud-native java application
 
 # Prerequisites
