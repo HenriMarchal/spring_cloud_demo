@@ -1,3 +1,3 @@
 # greeting microservice
 
-say hello/halo/hola... according your local language
+say hello/hallo/hola... according your local language
