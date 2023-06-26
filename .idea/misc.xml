@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/scd_01_withoutspringcloud/greeting/pom.xml" />
         <option value="$PROJECT_DIR$/scd_01_withoutspringcloud/name/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_01_withoutspringcloud/web/pom.xml" />
       </list>
     </option>
   </component>
