@@ -3,9 +3,6 @@ package com.example.demo;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
-/**
- * @author Ryan Baxter
- */
 @Service
 public class GreetingService {
 	private static final String URL = "http://localhost:9090";
@@ -20,6 +17,6 @@ public class GreetingService {
 	}
 
 	public String getGreeting(String locale) {
-		return rest.getForObject(new StringBuilder().append(URL).append("/").append(locale).toString(), String.class);
+		return rest.getForObject(URL + "/" + locale, String.class);
 	}
 }
