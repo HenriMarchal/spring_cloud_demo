@@ -1,6 +1,10 @@
 package com.example.demo;
 
+import java.util.Optional;
 import java.util.logging.Logger;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -9,15 +13,17 @@ public class NameController {
 
 	private static final Logger LOG = Logger.getLogger(NameController.class.getName());
 
-	private NameProperties nameProperties;
+	@Autowired
+	private NameDao repo;
 
-	public NameController(NameProperties nameProperties) {
-		this.nameProperties = nameProperties;
+	public NameController() {
+
 	}
 
-	@RequestMapping
-	public String getName() {
-		LOG.info("Name: " + nameProperties.getName());
-		return nameProperties.getName();
+	@RequestMapping("/{id}")
+	public String getName(@PathVariable Integer id) {
+		String name = ((Optional<Name>) repo.findById(id)).get().getName();
+		LOG.info("Name: " + name);
+		return name;
 	}
 }

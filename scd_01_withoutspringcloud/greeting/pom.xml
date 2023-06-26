@@ -9,7 +9,7 @@
 	<packaging>jar</packaging>
 
 	<name>greeting</name>
-	<description>Demo project for Spring Boot</description>
+	<description>Greeting microservice</description>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -51,7 +51,7 @@
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
-			<version>4.11</version>
+			<version>4.13.1</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>

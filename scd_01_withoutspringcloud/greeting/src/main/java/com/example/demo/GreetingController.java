@@ -12,7 +12,7 @@ public class GreetingController {
 	private static final Logger LOG = Logger.getLogger(GreetingController.class.getName());
 
 	@Autowired
-	GreetingDao repo;
+	private GreetingDao repo;
 	public GreetingController() {
 
 	}
