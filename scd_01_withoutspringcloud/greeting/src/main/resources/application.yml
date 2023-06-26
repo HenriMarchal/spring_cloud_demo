@@ -1,7 +1,12 @@
 server:
   port: 9090
-greeting: Hello
-greetings:
-  EN: Hello
-  ES: Hola
-  DE: Hallo
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: update
+  datasource:
+    url: "jdbc:mysql://${MYSQL_HOST:localhost}:3306/scd_greeting"
+    username: scd
+    password: scd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+#spring.jpa.show-sql: true
