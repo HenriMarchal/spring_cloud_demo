@@ -6,11 +6,13 @@ JDK 17
 
 Spring Boot CLI
 
-Maven
+Maven?
 
 IntelliJ Idea
 
 MySql server
+
+Node.js
 
 <br>
 in the MySql console, execute:
