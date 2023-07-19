@@ -3,6 +3,9 @@ package com.example.demo;
 import java.util.logging.Logger;
 
 import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.RequestContextUtils;
@@ -24,12 +27,19 @@ public class WebController {
 	}
 
 	@RequestMapping
-	public String index(HttpServletRequest request) {
+	public ResponseEntity<String> index(HttpServletRequest request) {
 		String locale = RequestContextUtils.getLocaleResolver(request).resolveLocale(request).getLanguage();
 		String greeting =  new StringBuilder().append(greetingService.getGreeting(locale)).
 				append(" ").append(nameService.getName()).toString();
 		LOG.info("Greeting: " + greeting);
 		LOG.info("Locale: " + locale);
-		return greeting;
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.add("Access-Control-Allow-Origin","*");
+		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
+		return ResponseEntity
+				.status(HttpStatus.OK)
+				.headers(headers)
+				.body(greeting);
 	}
 }

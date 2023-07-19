@@ -34,4 +34,7 @@ insert into greeting values (4, 'Hello', 'en');
 use scd_name;
 insert into name values (1, 'Henri');
 insert into name values (2, 'Hervé');
+<br>
 
+Later use for instance:
+mysql -u scd -p -D scd_greeting
