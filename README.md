@@ -6,7 +6,7 @@ JDK 17
 
 Spring Boot CLI
 
-Maven?
+Maven
 
 IntelliJ Idea
 
@@ -31,6 +31,7 @@ insert into greeting values (1, 'Hello', '');
 insert into greeting values (2, 'Hallo', 'de');
 insert into greeting values (3, 'Hola', 'es');
 insert into greeting values (4, 'Hello', 'en');
+insert into greeting values (5, 'Bonjour', 'fr');
 use scd_name;
 insert into name values (1, 'Henri');
 insert into name values (2, 'Hervé');
