@@ -1,27 +1,10 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { Dropdown } from 'semantic-ui-react'
 
 import Banner from './Banner'
 import '../styles/App.css'
 
-//TODO retrieve from database
-const friendOptions = [
-  {
-    key: 'en',
-    text: 'en',
-    value: 'en',
-  },
-  {
-    key: 'de',
-    text: 'de',
-    value: 'de',
-  },
-  {
-    key: 'es',
-    text: 'es',
-    value: 'es',
-  },
-]
-var resp = ''
+var resp = {}
 
 function handleClick(lang) {
   const xhr = new XMLHttpRequest()
@@ -36,25 +19,43 @@ function handleClick(lang) {
   xhr.send();
 }
 
-function Main() {
+function App() {
   const [lang, setLang] = useState('')
+  const [langOptions, setLangOptions] = useState([])
+
+  useEffect(() => {
+    const xhr = new XMLHttpRequest()
+    const arr = []
+    
+    xhr.open('GET', 'http://localhost:9090/')
+    xhr.onload = function() {
+      if (xhr.status === 200) {
+        resp = JSON.parse(xhr.responseText)
+        //resp = xhr.responseText
+        resp.map((greeting) => {
+          return arr.push({key: greeting, text: greeting, value: greeting})
+        });
+        setLangOptions(arr)
+      }
+    }
+    xhr.send()
+  }, [])
+  
   
   return (
     <div>
       <Banner/>
       <p>Greeting for</p>
       <div id='dropdownLang'>
-        <select placeholder='Select language' value={lang} onChange={event => setLang(event.target.value)}>
-          {friendOptions.map(option => (
-            <option key={option.key} value={option.value}>
-              {option.text}
-            </option>
-          ))}
-        </select>
+        <Dropdown selection placeholder='Select Language'
+        value={lang} options={langOptions} onChange={(event) => setLang(event.target.innerText)}
+        />
       </div>
       <button onClick={() => handleClick(lang)}>Get Greeting</button>
       <div id='greeting_result'>'Waiting...'</div>
     </div>
   )
 }
-export default Main
+export default App
+
+

@@ -3,9 +3,6 @@ package com.example.demo;
 import java.util.Map;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-/**
- * @author Ryan Baxter
- */
 @ConfigurationProperties()
 public class GreetingProperties {
 

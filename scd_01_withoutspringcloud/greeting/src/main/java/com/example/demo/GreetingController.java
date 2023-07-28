@@ -1,5 +1,8 @@
 package com.example.demo;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
@@ -38,9 +41,14 @@ public class GreetingController {
 	}
 
 	@RequestMapping("/")
-	public ResponseEntity<String> getGreeting(){
-		Greeting ret = repo.findByLanguageCode("");
-		LOG.info("Greeting: " + ret);
+	public ResponseEntity<String> getGreetings(){
+		List<Greeting> allData = repo.findAll();
+		LOG.info("Greeting: " + allData);
+		String[] ret =  new String[allData.size()];
+		//TODO remplacer par du guava
+		for (int i =0 ; i < allData.size() ; i++) {
+			ret[i] = allData.get(i).getLanguageCode();
+		}
 
 		HttpHeaders headers = new HttpHeaders();
 		headers.add("Access-Control-Allow-Origin","*");
