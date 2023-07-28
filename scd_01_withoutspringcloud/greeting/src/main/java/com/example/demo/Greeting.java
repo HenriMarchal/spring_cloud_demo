@@ -46,7 +46,7 @@ public class Greeting {
         return "Greeting{" +
                 "id=" + id +
                 ",languageCode=" + languageCode +
-                ", greeting='" + greeting + '\'' +
+                ", greeting=" + greeting +
                 '}';
     }
 }

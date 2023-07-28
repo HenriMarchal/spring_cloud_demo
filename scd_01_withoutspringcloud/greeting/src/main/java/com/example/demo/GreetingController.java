@@ -29,7 +29,7 @@ public class GreetingController {
 
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.body(new Gson().toJson(ret));
+				.body(ret.getGreeting());
 	}
 
 	@RequestMapping("/")

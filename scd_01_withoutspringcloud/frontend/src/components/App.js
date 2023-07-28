@@ -12,8 +12,8 @@ function handleClick(lang) {
   xhr.open('GET', 'http://localhost:9090/' + lang)
   xhr.onload = function() {
     if (xhr.status === 200) {
-      resp = JSON.parse(xhr.responseText)
-      document.getElementById("greeting_result").innerHTML = resp.greeting
+      resp = xhr.responseText
+      document.getElementById("greeting_result").innerHTML = resp
     }
   };
   xhr.send();
@@ -24,13 +24,14 @@ function App() {
   const [langOptions, setLangOptions] = useState([])
 
   useEffect(() => {
-    const xhr = new XMLHttpRequest()
+    const xhr1 = new XMLHttpRequest()
+    const xhr2 = new XMLHttpRequest()
     const arr = []
     
-    xhr.open('GET', 'http://localhost:9090/')
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        resp = JSON.parse(xhr.responseText)
+    xhr1.open('GET', 'http://localhost:9090/')
+    xhr1.onload = function() {
+      if (xhr1.status === 200) {
+        resp = JSON.parse(xhr1.responseText)
         //resp = xhr.responseText
         resp.map((greeting) => {
           return arr.push({key: greeting, text: greeting, value: greeting})
@@ -38,21 +39,35 @@ function App() {
         setLangOptions(arr)
       }
     }
-    xhr.send()
+    xhr1.send()
+    
+    xhr2.open('GET', 'http://localhost:8080/')
+    xhr2.onload = function() {
+      if (xhr2.status === 200) {
+        resp = xhr2.responseText
+        document.getElementById("loadTest").innerHTML = resp
+      }
+    }
+    xhr2.send()
   }, [])
   
   
   return (
     <div>
       <Banner/>
+
       <p>Greeting for</p>
       <div id='dropdownLang'>
         <Dropdown selection placeholder='Select Language'
-        value={lang} options={langOptions} onChange={(event) => setLang(event.target.innerText)}
+          value={lang} options={langOptions} onChange={(event) => setLang(event.target.innerText)}
         />
       </div>
       <button onClick={() => handleClick(lang)}>Get Greeting</button>
       <div id='greeting_result'>'Waiting...'</div>
+
+      <p>_________________________________________________</p>
+      <p>Load test</p>
+      <div> - 1 per second +</div><div id='loadTest'>OK</div>
     </div>
   )
 }
