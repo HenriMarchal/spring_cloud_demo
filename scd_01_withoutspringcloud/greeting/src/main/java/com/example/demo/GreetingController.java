@@ -1,13 +1,10 @@
 package com.example.demo;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,13 +27,8 @@ public class GreetingController {
 		Greeting ret = repo.findByLanguageCode(languageCode);
 		LOG.info("Greeting: " + ret);
 
-		//TODO create a filter ? On http://localhost? On a external config?
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Access-Control-Allow-Origin","*");
-		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.headers(headers)
 				.body(new Gson().toJson(ret));
 	}
 
@@ -45,17 +37,13 @@ public class GreetingController {
 		List<Greeting> allData = repo.findAll();
 		LOG.info("Greeting: " + allData);
 		String[] ret =  new String[allData.size()];
-		//TODO remplacer par du guava
+
 		for (int i =0 ; i < allData.size() ; i++) {
 			ret[i] = allData.get(i).getLanguageCode();
 		}
 
-		HttpHeaders headers = new HttpHeaders();
-		headers.add("Access-Control-Allow-Origin","*");
-		headers.add("Access-Control-Allow-Methods", "GET, POST, DELETE, PUT");
 		return ResponseEntity
 				.status(HttpStatus.OK)
-				.headers(headers)
 				.body(new Gson().toJson(ret));
 	}
 

@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/spring_cloud_demo.iml" filepath="$PROJECT_DIR$/.idea/spring_cloud_demo.iml" />
-      <module fileurl="file://$PROJECT_DIR$/scd_01_withoutspringcloud/web/web.iml" filepath="$PROJECT_DIR$/scd_01_withoutspringcloud/web/web.iml" />
     </modules>
   </component>
 </project>
