@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 import com.google.gson.Gson;
@@ -26,6 +27,13 @@ public class GreetingController {
 		LOG.info("Language Code: " + languageCode);
 		Greeting ret = repo.findByLanguageCode(languageCode);
 		LOG.info("Greeting: " + ret);
+
+		//Fake load time
+		try {
+			TimeUnit.MILLISECONDS.sleep(20);
+		} catch (InterruptedException e) {
+			throw new RuntimeException(e);
+		}
 
 		return ResponseEntity
 				.status(HttpStatus.OK)

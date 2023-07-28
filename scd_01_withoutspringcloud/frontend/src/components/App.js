@@ -22,10 +22,10 @@ function handleClick(lang) {
 function App() {
   const [lang, setLang] = useState('')
   const [langOptions, setLangOptions] = useState([])
+  const [freq, setFreq] = useState(500)
 
   useEffect(() => {
     const xhr1 = new XMLHttpRequest()
-    const xhr2 = new XMLHttpRequest()
     const arr = []
     
     xhr1.open('GET', 'http://localhost:9090/')
@@ -40,16 +40,32 @@ function App() {
       }
     }
     xhr1.send()
-    
+  }, [])
+
+  const [count, setCount] = useState(0)
+  useEffect(() => {
+    const xhr2 = new XMLHttpRequest()
+    const timer = setTimeout(() => {
+      setCount((count) => count + 1)
+    }, freq)
+
+    var timeElapsed = Date.now()
     xhr2.open('GET', 'http://localhost:8080/')
     xhr2.onload = function() {
       if (xhr2.status === 200) {
+        timeElapsed -= Date.now()
+        var notOK = ''
+        if (timeElapsed < -1000) {
+          notOK = 'NOT OK'
+        }
         resp = xhr2.responseText
-        document.getElementById("loadTest").innerHTML = resp
+        document.getElementById("loadTest").innerHTML = 'Web service: ' + resp + ' and ' + count + ' times at speed: ' + (-timeElapsed) + ' <b style="color:red;">' + notOK + '</b>'
       }
     }
     xhr2.send()
-  }, [])
+
+    return () => clearTimeout(timer)
+  })
   
   
   return (
@@ -67,7 +83,15 @@ function App() {
 
       <p>_________________________________________________</p>
       <p>Load test</p>
-      <div> - 1 per second +</div><div id='loadTest'>OK</div>
+      <div>
+        <input
+          type="number" 
+          value={freq}
+          onChange={(e) => setFreq(e.target.value)}
+        />
+        <span> millisecond a time</span>
+      </div>
+      <div id='loadTest'>OK</div>
     </div>
   )
 }
