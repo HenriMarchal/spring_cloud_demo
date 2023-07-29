@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
-import com.google.gson.Gson;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -50,9 +52,18 @@ public class GreetingController {
 			ret[i] = allData.get(i).getLanguageCode();
 		}
 
-		return ResponseEntity
-				.status(HttpStatus.OK)
-				.body(new Gson().toJson(ret));
+		try {
+			return ResponseEntity
+					.status(HttpStatus.OK)
+					.body(objectMapper().writeValueAsString(ret));
+		} catch (JsonProcessingException e) {
+			throw new RuntimeException(e);
+		}
+	}
+
+	@Bean
+	public ObjectMapper objectMapper() {
+		return new ObjectMapper();
 	}
 
 }
