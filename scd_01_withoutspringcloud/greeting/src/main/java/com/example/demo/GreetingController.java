@@ -32,7 +32,7 @@ public class GreetingController {
 
 		//Fake load time
 		try {
-			TimeUnit.MILLISECONDS.sleep(20);
+			TimeUnit.MILLISECONDS.sleep(200);
 		} catch (InterruptedException e) {
 			throw new RuntimeException(e);
 		}

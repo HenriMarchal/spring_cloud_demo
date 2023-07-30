@@ -22,7 +22,7 @@ function handleClick(lang) {
 function App() {
   const [lang, setLang] = useState('')
   const [langOptions, setLangOptions] = useState([])
-  const [freq, setFreq] = useState(500)
+  const [freq, setFreq] = useState(50)
 
   useEffect(() => {
     const xhr1 = new XMLHttpRequest()
