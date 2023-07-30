@@ -9,7 +9,7 @@ var resp = {}
 function handleClick(lang) {
   const xhr = new XMLHttpRequest()
   
-  xhr.open('GET', 'http://localhost:9090/' + lang)
+  xhr.open('GET', 'http://192.168.1.60:9090/' + lang)
   xhr.onload = function() {
     if (xhr.status === 200) {
       resp = xhr.responseText
@@ -28,7 +28,7 @@ function App() {
     const xhr1 = new XMLHttpRequest()
     const arr = []
     
-    xhr1.open('GET', 'http://localhost:9090/')
+    xhr1.open('GET', 'http://192.168.1.60:9090/')
     xhr1.onload = function() {
       if (xhr1.status === 200) {
         resp = JSON.parse(xhr1.responseText)
@@ -50,7 +50,7 @@ function App() {
     }, freq)
 
     var timeElapsed = Date.now()
-    xhr2.open('GET', 'http://localhost:8080/')
+    xhr2.open('GET', 'http://192.168.1.60:8080/')
     xhr2.onload = function() {
       if (xhr2.status === 200) {
         timeElapsed -= Date.now()
