@@ -6,12 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="greeting (2)" />
         <module name="web (2)" />
-        <module name="greeting (1)" />
+        <module name="web (3)" />
+        <module name="name (3)" />
         <module name="name (2)" />
-        <module name="name (1)" />
         <module name="web (1)" />
+        <module name="name (1)" />
+        <module name="greeting (3)" />
+        <module name="greeting (2)" />
+        <module name="greeting (1)" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="17">
@@ -25,12 +28,15 @@
       <module name="greeting" options="-parameters" />
       <module name="greeting (1)" options="-parameters" />
       <module name="greeting (2)" options="-parameters" />
+      <module name="greeting (3)" options="-parameters" />
       <module name="name" options="-parameters" />
       <module name="name (1)" options="-parameters" />
       <module name="name (2)" options="-parameters" />
+      <module name="name (3)" options="-parameters" />
       <module name="web" options="-parameters" />
       <module name="web (1)" options="-parameters" />
       <module name="web (2)" options="-parameters" />
+      <module name="web (3)" options="-parameters" />
     </option>
   </component>
 </project>

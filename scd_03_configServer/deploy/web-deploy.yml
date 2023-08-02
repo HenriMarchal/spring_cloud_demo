@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: web
+spec:
+  ports:
+    - port: 8080
+      targetPort: 8080
+  selector:
+    app: web
+  externalTrafficPolicy: Local
+  type: LoadBalancer
+---
+apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
+kind: Deployment
+metadata:
+  name: web
+spec:
+  selector:
+    matchLabels:
+      app: web
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+        - image: henrimarchal/web
+          name: web
+          resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 500m
+          ports:
+            - containerPort: 8080
+              name: web
+          readinessProbe:
+            tcpSocket:
+              host:
+              port: 8080
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              host:
+              port: 8080
+            initialDelaySeconds: 45
+            periodSeconds: 20
+      imagePullSecrets:
+        - name: regcred

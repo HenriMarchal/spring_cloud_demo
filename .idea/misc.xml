@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="EntryPointsManager">
     <list size="2">
@@ -15,6 +16,12 @@
         <option value="$PROJECT_DIR$/scd_02_withspringcloud/greeting/pom.xml" />
         <option value="$PROJECT_DIR$/scd_02_withspringcloud/name/pom.xml" />
         <option value="$PROJECT_DIR$/scd_02_withspringcloud/web/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_03_configServer/greeting/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_02_withk8s/web/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_02_withk8s/name/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_02_withk8s/greeting/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_03_configServer/name/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_03_configServer/web/pom.xml" />
       </list>
     </option>
   </component>
