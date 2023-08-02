@@ -29,8 +29,25 @@ spec:
       containers:
         - image: henrimarchal/name
           name: name
+          resources:
+            limits:
+              cpu: 1000m
+            requests:
+              cpu: 500m
           ports:
             - containerPort: 7070
               name: name
+          readinessProbe:
+            tcpSocket:
+              host:
+              port: 7070
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          livenessProbe:
+            tcpSocket:
+              host:
+              port: 7070
+            initialDelaySeconds: 45
+            periodSeconds: 20
       imagePullSecrets:
         - name: regcred
