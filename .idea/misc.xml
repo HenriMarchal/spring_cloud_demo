@@ -22,6 +22,7 @@
         <option value="$PROJECT_DIR$/scd_02_withk8s/greeting/pom.xml" />
         <option value="$PROJECT_DIR$/scd_03_configServer/name/pom.xml" />
         <option value="$PROJECT_DIR$/scd_03_configServer/web/pom.xml" />
+        <option value="$PROJECT_DIR$/scd_03_configServer/config_server/pom.xml" />
       </list>
     </option>
   </component>

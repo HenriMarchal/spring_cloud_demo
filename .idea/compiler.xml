@@ -10,6 +10,7 @@
         <module name="web (3)" />
         <module name="name (3)" />
         <module name="name (2)" />
+        <module name="config_server" />
         <module name="web (1)" />
         <module name="name (1)" />
         <module name="greeting (3)" />
@@ -25,6 +26,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="config_server" options="-parameters" />
       <module name="greeting" options="-parameters" />
       <module name="greeting (1)" options="-parameters" />
       <module name="greeting (2)" options="-parameters" />

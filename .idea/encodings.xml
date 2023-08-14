@@ -10,6 +10,8 @@
     <file url="file://$PROJECT_DIR$/scd_02_withk8s/greeting/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scd_02_withk8s/name/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scd_02_withk8s/web/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scd_03_configServer/config_server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/scd_03_configServer/config_server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scd_03_configServer/greeting/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scd_03_configServer/name/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/scd_03_configServer/web/src/main/java" charset="UTF-8" />

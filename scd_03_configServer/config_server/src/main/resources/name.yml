@@ -1,13 +1,10 @@
-server:
-  port: 9090
+server.port: 7070
 spring:
-  application:
-    name: greeting
   jpa:
     hibernate:
       ddl-auto: update
   datasource:
-    url: "jdbc:mysql://mysql:3306/scd_greeting"
+    url: "jdbc:mysql://mysql:3306/scd_name"
     username: scd
     password: scd
     driver-class-name: com.mysql.cj.jdbc.Driver
